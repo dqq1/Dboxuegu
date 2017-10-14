@@ -1,4 +1,4 @@
-define(["jquery","cookie"],function($){
+define(["jquery","cookie","form"],function($){
 
 
  $(function(){
@@ -20,13 +20,12 @@ define(["jquery","cookie"],function($){
                 }
 
                 //1. 获取用户的输入
-                var data = $(this).serialize();
+                // var data = $(this).serialize();
 
                 //2. 将用户输入的内容发送给接口api进行登录
-                $.ajax({
-                    url: "/api/login",
-                    type: "post",
-                    data: data,
+                $(this).ajaxSubmit({
+                    // url: "/api/login",
+                    // type: "post",
                     success: function(data){
                         if(data.code == 200){
                             //先将后台返回的用户的用户名以及头像信息存储到cookie中
