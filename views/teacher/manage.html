@@ -37,22 +37,25 @@
                 <div class="form-group">
                     <label for="" class="col-xs-3 control-label">姓名</label>
                     <div class="col-xs-4">
-                        <input type="text" name="tc_name" class="form-control input-sm" placeholder="讲师名称" value="{{teacher.tc_name}}">
+                        <input type="text" name="tc_name" class="form-control input-sm" placeholder="讲师名称" value="{{teacher.tc_name}}" data-required data-conditional="username" data-describedby="msgname" data-description="username">
                     </div>
+                    <label id="msgname" class="col-xs-3 control-label"></label>
                 </div>
                 {{if title=="讲师添加"}}
                 <div class="form-group">
                     <label for="" class="col-xs-3 control-label">密码</label>
                     <div class="col-xs-4">
-                        <input type="password"  class="form-control input-sm" name="tc_pass">
+                        <input type="password"  class="form-control input-sm" name="tc_pass" data-required data-description="pass" data-pattern="^[0-9A-Za-z]{6,15}$" data-describedby="msgpass">
                     </div>
+                    <label id="msgpass" class="col-xs-3 control-label"></label>
                 </div>
                 {{/if}}
                 <div class="form-group">
                     <label for="" class="col-xs-3 control-label">入职日期</label>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control input-sm date" name="tc_join_date" value="{{teacher.tc_join_date}}" readonly>
+                        <input type="text" class="form-control input-sm date" name="tc_join_date" value="{{teacher.tc_join_date}}" readonly data-required data-description="date" data-describedby="msgdate">
                     </div>
+                    <label id="msgdate" class="col-xs-3 control-label"></label>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-xs-3 control-label">类型</label>

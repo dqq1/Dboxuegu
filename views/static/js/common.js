@@ -1,8 +1,18 @@
 
-define(["jquery","template","form","cookie"],function($,template){
-
+define(["jquery","template","nprogress","form","cookie"],function($,template,NProgress){
+	NProgress.start();
+	
+	$(document).ajaxStart(function(){
+		$(".mask").show();
+		NProgress.start();
+	})
+	
+	$(document).ajaxStop(function(){
+		$(".mask").hide();
+		NProgress.done();
+	})
 	$(function(){
-
+		NProgress.done();
 			//如果不是在登录页面，才需要从cookie中获取用户数据然后展示在页面
 			if(location.pathname != "/dashboard/login"){
 				//如果没有登陆过，所有的页面都跳到登陆页面，根据后台返回的PHPSESSID令牌进行判断
